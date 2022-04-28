@@ -38,6 +38,7 @@ export default function Scene({ nextFunc, _baseGeo, currentLetterNum, _geo,
 
         audioList.bodyAudio1.src = returnAudioPath(audioPath[currentLetterNum].first)
         audioList.bodyAudio2.src = returnAudioPath(audioPath[currentLetterNum].second)
+        audioList.bodyAudio3.src = returnAudioPath(audioPath[currentLetterNum].third)
 
 
         setTimeout(() => {
@@ -45,14 +46,13 @@ export default function Scene({ nextFunc, _baseGeo, currentLetterNum, _geo,
             introturtle.current.play()
 
             setTimeout(() => {
-                audioList.bodyAudio2.play()
-                audioList.bodyAudio1.src = returnAudioPath(audioPath[currentLetterNum].third)
+                introturtle.current.stop()
                 setTimeout(() => {
-                    introturtle.current.stop()
+                    scaleRef.current.className = 'show-item'
                     setTimeout(() => {
-                        scaleRef.current.className = 'show-item'
+                        audioList.bodyAudio2.play()
                         setTimeout(() => {
-                            audioList.bodyAudio1.play()
+                            audioList.bodyAudio3.play()
 
                             setTimeout(() => {
                                 scaleRef.current.style.transform = 'scale(1.4)'
@@ -61,12 +61,11 @@ export default function Scene({ nextFunc, _baseGeo, currentLetterNum, _geo,
 
                             setTimeout(() => {
                                 nextFunc()
-                            }, audioList.bodyAudio1.duration * 1000 + 3000);
-                        }, 1000);
+                            }, audioList.bodyAudio3.duration * 1000 + 3000);
+                        }, audioList.bodyAudio2.duration * 1000);
+                    }, 800);
+                }, 500);
 
-
-                    }, 500);
-                }, audioList.bodyAudio2.duration * 1000);
             }, audioList.bodyAudio1.duration * 1000);
         }, 2500);
 
@@ -79,7 +78,7 @@ export default function Scene({ nextFunc, _baseGeo, currentLetterNum, _geo,
 
     return (
         <div
-            className="show-item"
+            className="aniObject"
             ref={parentObject}
             style={{
                 position: "fixed", width: _baseGeo.width + "px"
@@ -105,7 +104,7 @@ export default function Scene({ nextFunc, _baseGeo, currentLetterNum, _geo,
             </Player>
 
             <Player
-                className="show-item"
+                className="aniObjectDelay"
                 src={prePathUrl() + 'lottieFiles/sea_letters/ka.json'}
                 style={{
                     position: 'absolute',

@@ -258,18 +258,17 @@ export default function Scene({ nextFunc, _geo,
             }, 300);
 
             timerList[7] = setTimeout(() => {
-
-                audioList.letterAudio.play().catch(error => { });
+                // audioList.letterAudio.play().catch(error => { });
                 isExlaining = true;
 
-                timerList[8] = setTimeout(() => {
-                    audioList.bodyAudio1.play().catch(error => { });
-                    startRepeatAudio();
+                // timerList[8] = setTimeout(() => {
+                audioList.bodyAudio1.play().catch(error => { });
+                startRepeatAudio();
 
-                    timerList[9] = setTimeout(() => {
-                        isExlaining = false;
-                    }, audioList.bodyAudio1.duration * 1000);
-                }, 1000);
+                timerList[9] = setTimeout(() => {
+                    isExlaining = false;
+                }, audioList.bodyAudio1.duration * 1000);
+                // }, 1000);
 
             }, 1000);
         }, 500);
@@ -905,8 +904,6 @@ export default function Scene({ nextFunc, _geo,
 
                                                     startRepeatAudio(7000, 9000)
 
-
-
                                                     currentImgNumOriginal++
                                                     setRendering(currentImgNumOriginal);
 
@@ -1404,7 +1401,7 @@ export default function Scene({ nextFunc, _geo,
                         position: 'absolute',
                         width: '26%',
                         height: '20%',
-                        left: '10%',
+                        left: '5%',
                         top: '35%',
                         pointerEvents: 'none',
                         overflow: 'visible',

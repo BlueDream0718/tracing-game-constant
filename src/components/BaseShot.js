@@ -122,6 +122,7 @@ let titleAudio = loadSound('SB_05_Audio_01')
 
 let bodyAudio1 = loadSound('SB_05_Audio_02') //explain voice
 let bodyAudio2 = loadSound('SB_05_Audio_03')   //clap voice
+let bodyAudio3 = loadSound('SB_05_Audio_03')   //clap voice
 
 let wordAudio1 = loadSound('sb_06_audio_' + wordVoiceList[currentSceneNumber][0])  //word voice
 let wordAudio2 = loadSound('sb_06_audio_' + wordVoiceList[currentSceneNumber][1])  //word voice
@@ -147,7 +148,7 @@ audioWoo.volume = 0.5
 audioClick.volume = 0.0
 
 let audioList = {
-    backAudio, titleAudio, bodyAudio1, bodyAudio2,
+    backAudio, titleAudio, bodyAudio1, bodyAudio2, bodyAudio3,
     wordAudio1, wordAudio2, wordAudio3,
     audioYeah, audioWoo, audioSuccess,
     letterAudio, audioBuzz, audioClap, selfLetterAudio,
