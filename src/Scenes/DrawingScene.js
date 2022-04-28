@@ -1155,7 +1155,7 @@ export default function Scene({ nextFunc, _geo,
                 style={{
                     position: 'fixed', width: _geo.width * 0.18 + 'px',
                     height: _geo.height * 0.18 + 'px',
-                    right: _geo.left + _geo.width * 0.08 + 'px',
+                    right: _geo.left + _geo.width * 0.02 + 'px',
                     bottom: _geo.top + _geo.height * 0.15 + 'px',
                     pointerEvents: 'none',
                     transform: 'scale(1)'
