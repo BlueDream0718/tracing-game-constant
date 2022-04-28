@@ -35,7 +35,7 @@ const App = ({ geo, _setBackground, __controlBacksound, _startTransition,
   currentSceneNumber
 }, ref) => {
 
-  const [index, setIndex] = useState(2);
+  const [index, setIndex] = useState(0);
   const [_isBackSoundPlaying, _setBackgroundPlaying] = useState(true);
   const musicRef = useRef();
   __geo = geo;
@@ -112,7 +112,7 @@ const App = ({ geo, _setBackground, __controlBacksound, _startTransition,
 
   return (
     <div >
-      <div className={_isBackloaded ? '' : 'hideObject'}>
+      <div className={_isBackloaded ? '' : ''}>
         <Switch test={index}>
           <TitleScene key={0} nextFunc={nextFunc} _geo={__geo} value={0} />
           <ScaleScene key={1} currentLetterNum={currentSceneNumber} nextFunc={nextFunc} _baseGeo={baseGeo}

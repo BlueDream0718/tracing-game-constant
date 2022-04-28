@@ -50,7 +50,7 @@ export default function Scene({ nextFunc, _baseGeo, currentLetterNum, _geo,
                 setTimeout(() => {
                     introturtle.current.stop()
                     setTimeout(() => {
-                        scaleRef.current.className = 'aniObject'
+                        scaleRef.current.className = 'show-item'
                         setTimeout(() => {
                             audioList.bodyAudio1.play()
 
@@ -68,7 +68,7 @@ export default function Scene({ nextFunc, _baseGeo, currentLetterNum, _geo,
                     }, 500);
                 }, audioList.bodyAudio2.duration * 1000);
             }, audioList.bodyAudio1.duration * 1000);
-        }, 2000);
+        }, 2500);
 
         return () => {
         }
@@ -79,7 +79,7 @@ export default function Scene({ nextFunc, _baseGeo, currentLetterNum, _geo,
 
     return (
         <div
-            className="aniObject"
+            className="show-item"
             ref={parentObject}
             style={{
                 position: "fixed", width: _baseGeo.width + "px"
@@ -105,6 +105,7 @@ export default function Scene({ nextFunc, _baseGeo, currentLetterNum, _geo,
             </Player>
 
             <Player
+                className="show-item"
                 src={prePathUrl() + 'lottieFiles/sea_letters/ka.json'}
                 style={{
                     position: 'absolute',

@@ -260,7 +260,7 @@ export default function BaseShot() {
 
     function playGame() {
 
-        // showIntroTitle();
+        showIntroTitle();
 
         var hidden = "hidden";
 
@@ -337,27 +337,35 @@ export default function BaseShot() {
 
     function setBackground(imgUrl, optionNum = -1) {
         if (imgUrl != oldBackgroundImage) {
+
             setBackLoaded(false)
-            oldBackgroundImage = imgUrl;
-            myImage1.current.src = prePathUrl() + "images/BG/" + imgUrl + ".svg";
-            if (imgUrl != 'intro')
-                myImage1.current.style.bottom = backgroundSize.bottom + 'px'
-            else
-                myImage1.current.style.bottom = 0 + 'px'
-            if (optionNum != 1)  // transition scenes
-                myImage1.current.className = 'background-move'
-
+            let waitTime = 0;
+            if (imgUrl == 'SB_05_BG_01')
+                waitTime = 3000
             setTimeout(() => {
-                myImage.current.src = prePathUrl() + "images/BG/" + imgUrl + ".svg";
 
+                oldBackgroundImage = imgUrl;
+                myImage1.current.src = prePathUrl() + "images/BG/" + imgUrl + ".svg";
                 if (imgUrl != 'intro')
-                    myImage.current.style.bottom = backgroundSize.bottom + 'px'
+                    myImage1.current.style.bottom = backgroundSize.bottom + 'px'
                 else
-                    myImage.current.style.bottom = 0 + 'px'
-
+                    myImage1.current.style.bottom = 0 + 'px'
                 if (optionNum != 1)  // transition scenes
-                    myImage1.current.className = ''
-            }, 1500);
+                    myImage1.current.className = 'background-move'
+
+                setTimeout(() => {
+                    myImage.current.src = prePathUrl() + "images/BG/" + imgUrl + ".svg";
+
+                    if (imgUrl != 'intro')
+                        myImage.current.style.bottom = backgroundSize.bottom + 'px'
+                    else
+                        myImage.current.style.bottom = 0 + 'px'
+
+                    if (optionNum != 1)  // transition scenes
+                        myImage1.current.className = ''
+                }, 1500);
+            }, waitTime);
+
         }
 
     }
@@ -464,7 +472,7 @@ export default function BaseShot() {
                 <img draggable={false} height={"100%"}
                     onLoad={backgroundLoaded}
                     ref={myImage1}
-                    src={prePathUrl() + "images/BG/SB_05_BG_01.svg"}
+                    src={prePathUrl() + "images/BG/intro.svg"}
                 />
             </div>
 
