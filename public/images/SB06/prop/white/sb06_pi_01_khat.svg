@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="224.67" height="117.32" viewBox="0 0 224.67 117.32">
+  <defs>
+    <style>
+      .cls-1 {
+        isolation: isolate;
+      }
+
+      .cls-2 {
+        opacity: 0.5;
+      }
+
+      .cls-3 {
+        fill: #e5ae09;
+      }
+
+      .cls-4 {
+        fill: #ffcf03;
+      }
+
+      .cls-5 {
+        fill: #ffb806;
+      }
+
+      .cls-6 {
+        fill: #f2f2f2;
+        mix-blend-mode: multiply;
+      }
+
+      .cls-7 {
+        fill: #ffe423;
+      }
+
+      .cls-8 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <g class="cls-1">
+    <g id="Layer_1" data-name="Layer 1">
+      <g>
+        <path class="cls-2" d="M222.89,4.55a6,6,0,0,0-4.28-1.77h-208A6.06,6.06,0,0,0,4.51,8.84V111.26a6.06,6.06,0,0,0,6.07,6.06h208a6.06,6.06,0,0,0,6.06-6.06V8.84A6.06,6.06,0,0,0,222.89,4.55Zm-4.28,106.71h-208V8.84h208Z"/>
+        <g>
+          <rect class="cls-3" x="6.06" y="6.06" width="208.03" height="102.42"/>
+          <polygon class="cls-4" points="109.91 64 6.06 6.06 6.06 108.48 214.09 108.48 214.09 6.06 109.91 64"/>
+          <polygon class="cls-5" points="6.06 108.48 111.03 45.9 214.09 108.48 6.06 108.48"/>
+          <polygon class="cls-6" points="6.06 6.06 110.14 71.89 214.09 6.06 6.06 6.06"/>
+          <polygon class="cls-7" points="214.09 6.06 109.88 64.07 6.06 6.06 214.09 6.06"/>
+        </g>
+        <path class="cls-8" d="M218.38,1.78A6.06,6.06,0,0,0,214.09,0H6.06A6.06,6.06,0,0,0,0,6.06V108.48a6.06,6.06,0,0,0,6.06,6.06h208a6.06,6.06,0,0,0,6.07-6.06V6.06A6,6,0,0,0,218.38,1.78Zm-4.29,106.7H6.06V6.06h208Z"/>
+      </g>
+    </g>
+  </g>
+</svg>
