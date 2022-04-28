@@ -355,7 +355,7 @@ export default function Scene({ nextFunc, _geo,
                     showingOriginImgList[index].current.setClass('disappear')
                     setTimeout(() => {
                         img.current.style.transform = 'scale(1.12)'
-                        audioList.selfLetterAudio.play().catch(error => { })
+                        // audioList.selfLetterAudio.play().catch(error => { })
                         setTimeout(() => {
                             //play audio...
 
