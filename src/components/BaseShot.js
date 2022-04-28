@@ -19,7 +19,8 @@ backAudio.volume = 0.12;
 let currentSceneNumber = 0;
 
 let letterVoiceList = [
-    '16', '17',
+    '10',
+    '17',
     '18', '19',
     '20', '21',
     '22', '23',
@@ -45,7 +46,8 @@ let letterVoiceList = [
 ]
 
 let selfLetterVoiceList = [
-    '116', '117',
+    '10',
+    '117',
     '118', '119',
     '120', '121',
     '122', '123',
