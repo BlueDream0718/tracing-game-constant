@@ -11,27 +11,13 @@ import { returnAudioPath } from "../utils/loadSound";
 import {
     maskInfoList, animtionList, letterPosList,
     lineLengthList, firstPosList, movePath, brushColorList, showingLayoutList,
-    notJudgeBackList,
-    preFixList, firstSubPosList, lastSubPosList, seaLetters
+    notJudgeBackList, letterList,
+    preFixList, firstSubPosList, lastSubPosList, seaLetters, missedList
 } from "../components/CommonVariants"
 
 import { setRepeatAudio, startRepeatAudio, stopRepeatAudio, isRepeating } from "../components/CommonFunctions";
 
-const letterList = [
-    { path: 'ka', s: 1.4, l: -0.2, b: 0.26 },
-    { path: '2AA', s: 1.4, l: -0.2, b: 0.26 },
-    { path: '3I', s: 2.2, l: -0.6, b: -0.7 },
-    { path: '4EE', s: 1.8, l: -0.4, b: -0.2 },
-    { path: '5U', s: 1.2, l: -0.1, b: 0.26 },
-    { path: '6OO', s: 2, l: -0.5, b: -0.66 },
-    { path: '7RU', s: 1.2, l: -0.1, b: 0.42 },
-    { path: '8E', s: 1.6, l: -0.3, b: 0.12 },
-    { path: '9AI', s: 1.8, l: -0.5, b: 0.12 },
-    { path: '10O', s: 2.4, l: -0.7, b: -0.42 },
-    { path: '11OU', s: 1.2, l: -0.1, b: 0.42 },
-    { path: '12AM', s: 1.4, l: -0.2, b: 0.42 },
-    { path: '13AHA', s: 1.4, l: -0.2, b: 0.42 },
-]
+
 
 var repeatStep = 0;
 
@@ -77,11 +63,31 @@ var geometryInfo
 let lastObjectList = []
 let firstObjectList = []
 
+let totalObjectCount = -1;
+let isObjectEmpty = false;
+
 export default function Scene({ nextFunc, _geo,
     currentLetterNum, startTransition, audioList
 }) {
 
+
+    if (totalObjectCount == -1)
+        missedList.map(value => {
+            if (value[0] - 1 == currentLetterNum)
+                totalObjectCount = value[1]
+        })
+
+    if (totalObjectCount == 0) {
+        totalObjectCount = 1
+        isObjectEmpty = true;
+    }
+    if (totalObjectCount == -1)
+        totalObjectCount = 3
+
+
     const letterNum = currentLetterNum;
+
+
 
     const wordVoiceList = [audioList.wordAudio1, audioList.wordAudio2, audioList.wordAudio3]
 
@@ -166,7 +172,11 @@ export default function Scene({ nextFunc, _geo,
 
     let currentPath = movePath[letterNum][stepCount]
 
+
+
     useEffect(() => {
+
+
 
         audioList.bodyAudio1.src = returnAudioPath(explainVoices[0], true)
         audioList.bodyAudio2.src = returnAudioPath(clapVoices[0])
@@ -192,6 +202,7 @@ export default function Scene({ nextFunc, _geo,
 
         drawingPanel.current.className = 'hideObject'
         markParentRef.current.className = 'hideObject'
+        turtleBaseRef.current.className = 'hideObject'
         // animationRef.current.className = 'hideObject'
 
         //1-explain
@@ -207,6 +218,7 @@ export default function Scene({ nextFunc, _geo,
         }, 500);
 
         setRepeatAudio(audioList.bodyAudio1)
+
         return () => {
             currentImgNumOriginal = 0;
             repeatStep = 0;
@@ -258,17 +270,17 @@ export default function Scene({ nextFunc, _geo,
             }, 300);
 
             timerList[7] = setTimeout(() => {
-                // audioList.letterAudio.play().catch(error => { });
+                audioList.letterAudio.play().catch(error => { });
                 isExlaining = true;
 
-                // timerList[8] = setTimeout(() => {
-                audioList.bodyAudio1.play().catch(error => { });
-                startRepeatAudio();
+                timerList[8] = setTimeout(() => {
+                    audioList.bodyAudio1.play().catch(error => { });
+                    startRepeatAudio();
 
-                timerList[9] = setTimeout(() => {
-                    isExlaining = false;
-                }, audioList.bodyAudio1.duration * 1000);
-                // }, 1000);
+                    timerList[9] = setTimeout(() => {
+                        isExlaining = false;
+                    }, audioList.bodyAudio1.duration * 1000);
+                }, 1500);
 
             }, 1000);
         }, 500);
@@ -280,106 +292,112 @@ export default function Scene({ nextFunc, _geo,
         audioList.bodyAudio1.src = returnAudioPath(explainVoices[4], true)
         startTransition(3)
         setTimeout(() => {
-            markBaseList.map(value => value.current.className = 'hideObject')
+            markBaseList.map(value => {
+                if (value.current)
+                    value.current.className = 'hideObject'
+            }
+            )
             drawingPanel.current.className = 'hideObject'
         }, 300);
 
+        let sparkPosList = [0.1, 0.41, 0.7]
+
+        if (totalObjectCount == 2)
+            sparkPosList = [0.22, 0.62]
+
+        if (totalObjectCount == 1)
+            sparkPosList = [0.42]
+
         letterRefList.map((letter, index) => {
-            setTimeout(() => {
-                reviewImgList[index].current.style.transition = '0.5s'
-                reviewImgList[index].current.style.transform = 'scale(1.12)'
-
-                sparkBaseRef.current.style.left =
-                    (geometryInfo.left + geometryInfo.width * (0.15 + [-0.05, 0.26, 0.55][index])) + 'px'
-
-                letter.current.className = 'appear'
+            if (index < totalObjectCount)
                 setTimeout(() => {
-                    wordVoiceList[index].play().catch(error => { })
-                }, 300);
+                    reviewImgList[index].current.style.transition = '0.5s'
+                    reviewImgList[index].current.style.transform = 'scale(1.12)'
 
 
-                setTimeout(() => {
-                    letter.current.className = 'disapear'
-                    letter.current.style.transform = 'scale(0.5)'
+                    sparkBaseRef.current.style.left =
+                        (geometryInfo.left + geometryInfo.width * sparkPosList[index]) + 'px'
+
+                    letter.current.className = 'appear'
+                    setTimeout(() => {
+                        wordVoiceList[index].play().catch(error => { })
+                    }, 300);
+
 
                     setTimeout(() => {
-                        showingHighImgList[index].current.setClass('appear')
-                        subLetterList[index].current.setClass('appear')
-                        audioList.audioTing.play();
-                        let showIndex = 0;
-                        sparkRefList[showIndex].current.setClass('showObject')
-                        let showInterval = setInterval(() => {
-                            sparkRefList[showIndex].current.setClass('hideObject')
-                            if (showIndex < 2) {
-                                showIndex++
-                                sparkRefList[showIndex].current.setClass('showObject')
-                            }
-                            else {
-                                clearInterval(showInterval)
-                            }
-                        }, 200);
-                    }, 400);
+                        letter.current.className = 'disapear'
+                        letter.current.style.transform = 'scale(0.5)'
 
-                    setTimeout(() => {
-                        reviewImgList[index].current.style.transition = '0.5s'
-                        reviewImgList[index].current.style.transform = 'scale(1)'
                         setTimeout(() => {
-                            showingHighImgList[index].current.setClass('disappear')
-                            showingOriginImgList[index].current.setClass('appear')
+                            showingHighImgList[index].current.setClass('appear')
+                            subLetterList[index].current.setClass('appear')
 
-                            if (index == 2) {
+                            audioList.audioTing.currentTime = 0
+                            audioList.audioTing.play();
 
-                                //play let's start audio...
-                                setTimeout(() => {
-                                    selfReviewFunc()
-                                }, 1000);
-                            }
-                        }, 300);
-                    }, 4000);
-                }, 2000);
-            }, index * 6500 + 2000);
+                            let showIndex = 0;
+                            sparkRefList[showIndex].current.setClass('showObject')
+                            let showInterval = setInterval(() => {
+                                sparkRefList[showIndex].current.setClass('hideObject')
+                                if (showIndex < 2) {
+                                    showIndex++
+                                    sparkRefList[showIndex].current.setClass('showObject')
+                                }
+                                else {
+                                    clearInterval(showInterval)
+                                }
+                            }, 200);
+                        }, 400);
+
+                        setTimeout(() => {
+                            reviewImgList[index].current.style.transition = '0.5s'
+                            reviewImgList[index].current.style.transform = 'scale(1)'
+                            setTimeout(() => {
+                                showingHighImgList[index].current.setClass('disappear')
+                                showingOriginImgList[index].current.setClass('appear')
+
+                                if (index == totalObjectCount - 1) {
+                                    setTimeout(() => {
+                                        selfReviewFunc()
+                                    }, 1000);
+                                }
+                            }, 300);
+                        }, 4000);
+                    }, 2000);
+                }, index * 6500 + 2000);
         })
     }
 
     function selfReviewFunc() {
-
         audioList.bodyAudio1.play().catch(error => { });
         setTimeout(() => {
             audioList.bodyAudio1.pause();
 
             reviewImgList.map((img, index) => {
-                setTimeout(() => {
-
-                    showingHighImgList[index].current.setClass('appear')
-                    showingOriginImgList[index].current.setClass('disappear')
+                if (index < totalObjectCount)
                     setTimeout(() => {
-                        img.current.style.transform = 'scale(1.12)'
-                        // audioList.selfLetterAudio.play().catch(error => { })
+                        showingHighImgList[index].current.setClass('appear')
+                        showingOriginImgList[index].current.setClass('disappear')
                         setTimeout(() => {
-                            //play audio...
-
+                            img.current.style.transform = 'scale(1.12)'
+                            audioList.selfLetterAudio.play().catch(error => { })
                             setTimeout(() => {
                                 img.current.style.transform = 'scale(1)'
                                 setTimeout(() => {
                                     showingHighImgList[index].current.setClass('disappear')
                                     showingOriginImgList[index].current.setClass('appear')
 
-                                    if (index == 2) {
+                                    if (index == totalObjectCount - 1) {
                                         setTimeout(() => {
-                                            parentObject.current.style.transition = '0.5s'
-                                            parentObject.current.className = 'disappear'
-                                            setTimeout(() => {
-                                                nextFunc()
-                                            }, 500);
+                                            nextFunc()
                                         }, 1000);
                                     }
                                 }, 500);
-                            }, 3500);
-                        }, 500);
-                    }, 1000);
-                }, 6000 * index);
+                            }, 4000);
+                        }, 1000);
+                    }, 6000 * index);
             })
-        }, audioList.bodyAudio1.duration * 1000 + 500);
+        }, audioList.bodyAudio1.duration * 1000);
     }
 
     function preload() {
@@ -503,7 +521,7 @@ export default function Scene({ nextFunc, _geo,
 
                     let showingTime = 2000
 
-                    if (letterNum < 12) {
+                    if (!isObjectEmpty) {
                         showingImg.current.className = 'appear'
 
                         setTimeout(() => {
@@ -517,7 +535,6 @@ export default function Scene({ nextFunc, _geo,
                         showingTime = 6000
                     }
 
-                    // alert('finished')
                     circleObj.y = 10000;
                     movingImage.y = 10000
 
@@ -529,7 +546,7 @@ export default function Scene({ nextFunc, _geo,
 
                     audioList.audioSuccess.play().catch(error => { });
                     setTimeout(() => {
-                        if (repeatStep == 2)
+                        if (repeatStep == totalObjectCount - 1)
                             audioList.bodyAudio2.play().catch(error => { });
                     }, 1000);
 
@@ -538,16 +555,13 @@ export default function Scene({ nextFunc, _geo,
                     setTimeout(() => {
                         setTimeout(() => {
                             isExlaining = false;
-                            if (repeatStep < 2) {
+                            if (repeatStep < totalObjectCount - 1) {
                                 timerList[0] = setTimeout(() => {
                                     isExlaining = true;
-                                    // audioList.letterAudio.play().catch(error => { });
-                                    // timerList[1] = setTimeout(() => {
                                     audioList.bodyAudio1.play().catch(error => { });
                                     timerList[2] = setTimeout(() => {
                                         isExlaining = false;
                                     }, audioList.bodyAudio1.duration * 1000);
-                                    // }, 1000);
                                 }, 1000);
 
                                 currentImgNumOriginal++
@@ -607,7 +621,7 @@ export default function Scene({ nextFunc, _geo,
                                 subCurves = []
                             }
                             else {
-                                if (currentLetterNum != 12)
+                                if (!isObjectEmpty)
                                     reviewFunc();
                                 else
                                     nextFunc()
@@ -642,6 +656,10 @@ export default function Scene({ nextFunc, _geo,
                     setTimeout(() => {
 
                         if (firstPosList[letterNum][stepCount].letter_start) {
+
+                            audioList.audioTing.currentTime = 0
+                            audioList.audioTing.play();
+
                             highlightRefList[highCurrentNum].current.setClass('disappear')
 
                             highCurrentNum++
@@ -775,11 +793,6 @@ export default function Scene({ nextFunc, _geo,
                                     let oldPosList = subCurve.points
                                     subCurve = new Phaser.Curves.Spline([oldPosList[oldPosList.length - 1].x, oldPosList[oldPosList.length - 1].y]);
 
-                                    // subCurve.addPoint(
-                                    //     oldPosList[oldPosList.length - 3].x,
-                                    //     oldPosList[oldPosList.length - 3].y
-                                    // )
-
                                     subCurves = []
                                     subCurves.push(subCurve)
                                 }
@@ -839,10 +852,6 @@ export default function Scene({ nextFunc, _geo,
                                     completedIndex = 0
                                     curve.addPoint(x, y);
 
-                                    // subCurve.addPoint(x, y)
-
-
-
                                     if (stepCount == movePath[letterNum].length - 1) {
 
                                         outLineRefList[1].current.setClass('appear')
@@ -852,7 +861,7 @@ export default function Scene({ nextFunc, _geo,
 
                                         let showingTime = 2000
 
-                                        if (letterNum < 12) {
+                                        if (!isObjectEmpty) {
                                             showingImg.current.className = 'appear'
 
                                             setTimeout(() => {
@@ -879,10 +888,10 @@ export default function Scene({ nextFunc, _geo,
                                         });
 
                                         markRefList[repeatStep].current.setUrl('SB_04_Progress bar/SB_04_progress bar_03.svg')
-
                                         audioList.audioSuccess.play().catch(error => { });
+
                                         setTimeout(() => {
-                                            if (repeatStep == 2)
+                                            if (repeatStep == totalObjectCount - 1)
                                                 audioList.bodyAudio2.play().catch(error => { });
                                         }, 1000);
                                         audioList.bodyAudio1.src = returnAudioPath(explainVoices[repeatStep + 2], true)
@@ -890,7 +899,7 @@ export default function Scene({ nextFunc, _geo,
                                         setTimeout(() => {
                                             setTimeout(() => {
                                                 isExlaining = false;
-                                                if (repeatStep < 2) {
+                                                if (repeatStep < totalObjectCount - 1) {
                                                     timerList[0] = setTimeout(() => {
                                                         isExlaining = true;
                                                         // audioList.letterAudio.play().catch(error => { });
@@ -961,7 +970,10 @@ export default function Scene({ nextFunc, _geo,
                                                     subCurves = []
                                                 }
                                                 else {
-                                                    reviewFunc();
+                                                    if (!isObjectEmpty)
+                                                        reviewFunc();
+                                                    else
+                                                        nextFunc()
                                                 }
 
                                             }, showingTime);
@@ -1006,6 +1018,10 @@ export default function Scene({ nextFunc, _geo,
                                                 rememberX = currentPath[0].x
 
                                                 if (firstPosList[letterNum][stepCount].letter_start) {
+
+                                                    audioList.audioTing.currentTime = 0
+                                                    audioList.audioTing.play();
+
                                                     highlightRefList[highCurrentNum].current.setClass('disappear')
                                                     highCurrentNum++
                                                     highlightRefList[highCurrentNum].current.setClass('appear')
@@ -1054,10 +1070,6 @@ export default function Scene({ nextFunc, _geo,
                                         ]
                                         );
 
-                                        // curve.addPoint(
-                                        //     oldPosList[oldPosList.length - 1].x,
-                                        //     oldPosList[oldPosList.length - 2].y
-                                        // )
                                         curves = []
                                         curves.push(curve)
                                     }
@@ -1134,7 +1146,14 @@ export default function Scene({ nextFunc, _geo,
     }
 
 
-
+    let baseX = 0.1, stepX = 0.3
+    if (totalObjectCount == 2) {
+        baseX = 0.2
+        stepX = 0.4
+    }
+    if (totalObjectCount == 1) {
+        baseX = 0.4
+    }
 
     return (
         <div
@@ -1153,57 +1172,57 @@ export default function Scene({ nextFunc, _geo,
                     position: 'fixed', width: _geo.width * 0.18 + 'px',
                     height: _geo.height * 0.18 + 'px',
                     right: _geo.left + _geo.width * 0.02 + 'px',
-                    bottom: _geo.top + _geo.height * 0.15 + 'px',
+                    bottom: _geo.top + _geo.height * 0.12 + 'px',
                     pointerEvents: 'none',
                     transform: 'scale(1)'
                 }}>
                 <BaseImage
-                    scale={showingLayoutList[0][currentImgNumOriginal].s}
-                    posInfo={{ b: 1.2, r: showingLayoutList[0][currentImgNumOriginal].r }}
-                    url={"SB06/prop/white/sb06_pi_01_" + showingLayoutList[0][currentImgNumOriginal].wPath + ".svg"}
+                    scale={showingLayoutList[letterNum][currentImgNumOriginal].s}
+                    posInfo={{ b: 1.1, r: showingLayoutList[letterNum][currentImgNumOriginal].r }}
+                    url={"SB06/prop/white/sb06_pi_01_" + showingLayoutList[letterNum][currentImgNumOriginal].wPath + ".svg"}
 
                 />
                 <BaseImage
-                    posInfo={{ r: 0.02, b: 0.3 }}
-                    style={{ transform: 'scale(0.8)' }}
-                    url={"SB06/text/sb06_ti_01_" + showingLayoutList[0][currentImgNumOriginal].wPath + ".svg"}
+                    posInfo={{ r: 0.02, b: showingLayoutList[letterNum][currentImgNumOriginal].tb }}
+                    style={{ transform: 'scale(' + (0.8 * showingLayoutList[letterNum][currentImgNumOriginal].ts) + ')' }}
+                    url={"SB06/text/sb06_ti_01_" + showingLayoutList[letterNum][currentImgNumOriginal].wPath + ".svg"}
                 />
             </div>
             {
-                [0, 1, 2].map(value =>
+                Array.from(Array(totalObjectCount).keys()).map(value =>
                     <div
                         ref={reviewImgList[value]}
                         // className='hideObject'
                         style={{
                             position: 'fixed', width: _geo.width * 0.2 + 'px',
                             height: _geo.height * 0.18 + 'px',
-                            left: _geo.left + _geo.width * (0.1 + 0.3 * value) + 'px',
-                            bottom: _geo.top + _geo.height * 0.2 + 'px',
+                            left: _geo.left + _geo.width * (baseX + stepX * value) + 'px',
+                            bottom: _geo.top + _geo.height * 0.175 + 'px',
                             pointerEvents: 'none',
                             transform: 'scale(1)',
                         }}>
                         <BaseImage
                             ref={showingOriginImgList[value]}
                             className='hideObject'
-                            scale={showingLayoutList[0][value].s}
-                            posInfo={{ b: 1.2, r: showingLayoutList[0][value].r }}
-                            url={"SB06/prop/white/sb06_pi_01_" + showingLayoutList[0][value].wPath + ".svg"}
+                            scale={showingLayoutList[letterNum][value].s}
+                            posInfo={{ b: 1.2, r: showingLayoutList[letterNum][value].r }}
+                            url={"SB06/prop/white/sb06_pi_01_" + showingLayoutList[letterNum][value].wPath + ".svg"}
                         />
 
                         <BaseImage
                             ref={showingHighImgList[value]}
                             className='hideObject'
-                            scale={showingLayoutList[0][value].s}
-                            posInfo={{ b: 1.2, r: showingLayoutList[0][value].r }}
-                            url={"SB06/prop/yellow/sb06_pi_03_" + showingLayoutList[0][value].wPath + ".svg"}
+                            scale={showingLayoutList[letterNum][value].s}
+                            posInfo={{ b: 1.2, r: showingLayoutList[letterNum][value].r }}
+                            url={"SB06/prop/yellow/sb06_pi_03_" + showingLayoutList[letterNum][value].wPath + ".svg"}
                         />
 
                         <BaseImage
-                            posInfo={{ r: 0.02, b: showingLayoutList[0][value].tb }}
+                            posInfo={{ r: 0.02, b: showingLayoutList[letterNum][value].tb }}
                             className='hideObject'
                             ref={subLetterList[value]}
-                            style={{ transform: 'scale(0.8)' }}
-                            url={"SB06/text/sb06_ti_01_" + showingLayoutList[0][value].wPath + ".svg"}
+                            style={{ transform: 'scale(' + (0.8 * showingLayoutList[letterNum][value].ts) + ')' }}
+                            url={"SB06/text/sb06_ti_01_" + showingLayoutList[letterNum][value].wPath + ".svg"}
 
                         />
 
@@ -1212,11 +1231,11 @@ export default function Scene({ nextFunc, _geo,
                             className='hideObject'
                             style={{
                                 position: 'absolute',
-                                width: letterList[0].s * 100 + '%',
-                                left: letterList[0].l * 100 + '%',
-                                bottom: letterList[0].b * 100 + '%',
+                                width: letterList[letterNum].s * 100 + '%',
+                                left: letterList[letterNum].l * 100 + '%',
+                                bottom: letterList[letterNum].b * 100 + '%',
                                 pointerEvents: 'none',
-                                overflow: 'visible'
+                                overflow: 'visible',
                             }}
 
                         >
@@ -1230,7 +1249,7 @@ export default function Scene({ nextFunc, _geo,
                                     overflow: 'visible'
                                 }}
 
-                                src={prePathUrl() + 'lottieFiles/sea_letters/' + seaLetters[letterNum].path + '.json'}
+                                src={prePathUrl() + 'lottieFiles/sea_letters/' + letterList[letterNum].path + '.json'}
 
                             >
                             </Player>
@@ -1266,19 +1285,19 @@ export default function Scene({ nextFunc, _geo,
             }
             <div ref={markParentRef}>
                 {
-                    [0, 1, 2].map(value =>
+                    Array.from(Array(totalObjectCount).keys()).map(value =>
                         <div
-                            ref={markBaseList[2 - value]}
+                            ref={markBaseList[totalObjectCount - value - 1]}
                             style={{
                                 position: 'fixed',
                                 width: _geo.width * 0.06 + 'px',
                                 height: _geo.width * 0.06 + 'px',
-                                right: _geo.width * (0.03 + 0.075 * value) + 'px',
+                                right: _geo.width * (0.06 + 0.075 * value) + 'px',
                                 top: 0.05 * _geo.height + 'px',
                                 pointerEvents: 'none'
                             }}>
                             <BaseImage
-                                ref={markRefList[2 - value]}
+                                ref={markRefList[totalObjectCount - value - 1]}
                                 url="SB_04_Progress bar/SB_04_progress bar_04.svg"
                             />
                         </div>
@@ -1378,7 +1397,7 @@ export default function Scene({ nextFunc, _geo,
                         left: _geo.left + _geo.width * animtionList[letterNum].left,
                         top: _geo.top + _geo.height * animtionList[letterNum].top,
                         pointerEvents: 'none',
-                        overflow: 'visible'
+                        overflow: 'visible',
                     }}
                 >
                 </Player>

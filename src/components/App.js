@@ -10,15 +10,8 @@ import { MusicButton } from './CommonButtons';
 import "../stylesheets/styles.css";
 import "../stylesheets/button.css";
 
-import { prePathUrl } from "./CommonFunctions";
+import { prePathUrl,Switch } from "./CommonFunctions";
 
-const Switch = props => {
-  const { test, children } = props
-  // filter out only children with a matching prop
-  return children.find(child => {
-    return child.props.value === test
-  })
-}
 
 var __geo;
 var backgroundImageIndex = 0;

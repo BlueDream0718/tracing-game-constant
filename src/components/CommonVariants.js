@@ -10,19 +10,97 @@ const moveImageList = [
 ]
 
 const letterList = [
-    { path: '1A', s: 0.24, l: 0.48, t: 0.26 },
-    { path: '2AA', s: 0.24, l: 0.48, t: 0.26 },
-    { path: '3I', s: 0.24, l: 0.445, t: 0.09 },
-    { path: '4EE', s: 0.24, l: 0.49, t: 0.25 },
-    { path: '5U', s: 0.2, l: 0.51, t: 0.26 },
-    { path: '6OO', s: 0.24, l: 0.445, t: 0.075 },
-    { path: '7RU', s: 0.22, l: 0.5, t: 0.27 },
-    { path: '8E', s: 0.24, l: 0.49, t: 0.26 },
-    { path: '9AI', s: 0.22, l: 0.5, t: 0.23 },
-    { path: '10O', s: 0.26, l: 0.43, t: 0.03 },
-    { path: '11OU', s: 0.22, l: 0.49, t: 0.26 },
-    { path: '12AM', s: 0.24, l: 0.49, t: 0.21 },
-    { path: '13AHA', s: 0.24, l: 0.49, t: 0.21 },
+    { path: '1ka', s: 1.6, l: -0.4, b: 0.35 },
+    { path: '2ksha', s: 1.4, l: -0.2, b: 0.16 },
+    { path: '3kha', s: 1.6, l: -0.3, b: 0.2 },
+    { path: '4ga', s: 1.6, l: -0.3, b: 0.2 },
+    { path: '5gha', s: 1.6, l: -0.3, b: 0.2 },
+    { path: '6nya', s: 1.4, l: -0.25, b: 0.1 },
+    { path: '7cha', s: 1.6, l: -0.3, b: 0.2 },
+    { path: '8chha', s: 1.6, l: -0.4, b: 0.35 },
+    { path: '9ja', s: 1.6, l: -0.4, b: 0.38 },
+    { path: '', s: 1.6, l: -0.3, b: 0.2 },     //missed...
+    { path: '11jha', s: 1.4, l: -0.2, b: 0.2 },
+    { path: '12nyaa', s: 1.6, l: -0.3, b: 0.2 }, //12
+
+    { path: '13ta', s: 1.4, l: -0.25, b: 0.1 },
+    { path: '14tha', s: 1.6, l: -0.3, b: 0.2 },
+    { path: '15da', s: 1.4, l: -0.25, b: 0.1 },
+    { path: '16dha', s: 1.5, l: -0.2, b: 0.1 },
+
+    { path: '17na', s: 1.8, l: -0.4, b: 0.2 },
+    { path: '18daa', s: 1.2, l: -0.2, b: -0.2 },
+
+
+    { path: '19taa', s: 1.6, l: -0.3, b: -0.1 },
+    { path: '20tra', s: 1.6, l: -0.3, b: 0.2 },
+    { path: '21thaa', s: 1.6, l: -0.3, b: 0.0 },
+    { path: '', s: 1.6, l: -0.3, b: 0.2 }, //missed....
+    { path: '23dhaa', s: 1.6, l: -0.3, b: -0.1 },
+
+    { path: '24naa', s: 1.6, l: -0.3, b: 0.2 }, //24
+    { path: '25paa', s: 1.6, l: -0.3, b: -0.1 },
+    { path: '26faa', s: 1.7, l: -0.35, b: 0.1 },
+
+    { path: '27baa', s: 1.6, l: -0.3, b: 0.1 },
+
+    { path: '28bha', s: 1.6, l: -0.3, b: 0.1 },
+    { path: '29ma', s: 1.6, l: -0.3, b: 0.1 },
+    { path: '30ya', s: 1.6, l: -0.3, b: 0.1 },
+    { path: '31ra', s: 1.3, l: -0.15, b: 0.0 },
+
+    { path: '32la', s: 1.6, l: -0.3, b: 0.2 },
+    { path: '33va', s: 1.6, l: -0.3, b: 0.2 },
+    { path: '34sha', s: 1.6, l: -0.3, b: 0.2 },
+    { path: '35shra', s: 1.6, l: -0.3, b: 0.2 },
+    { path: '36shaa', s: 1.6, l: -0.3, b: 0.2 },
+    { path: '37sa', s: 1.6, l: -0.3, b: 0.2 },
+    { path: '38ha', s: 1.4, l: -0.2, b: -0.2 },
+
+]
+
+export const introLetterList = [
+    { path: '1ka', s: 0.2, l: 0.4, t: 0.28 },
+    { path: '2ksha', s: 0.16, l: 0.43, t: 0.25 },
+    { path: '3kha', s: 0.2, l: 0.4, t: 0.27 },
+    { path: '4ga', s: 0.2, l: 0.4, t: 0.27 },
+    { path: '5gha', s: 0.2, l: 0.4, t: 0.25 },
+    { path: '6nya', s: 0.16, l: 0.42, t: 0.25 },
+    { path: '7cha', s: 0.2, l: 0.4, t: 0.27 },
+    { path: '8chha', s: 0.2, l: 0.4, t: 0.25 },
+    { path: '9ja', s: 0.23, l: 0.37, t: 0.27 },
+    { path: '', s: 0.2, l: 0.4, t: 0.27 },     //missed...
+    { path: '11jha', s: 0.18, l: 0.42, t: 0.25 },
+    { path: '12nyaa', s: 0.2, l: 0.4, t: 0.25 },
+    { path: '13ta', s: 0.2, l: 0.4, t: 0.24 },
+    { path: '14tha', s: 0.18, l: 0.41, t: 0.25 },
+    { path: '15da', s: 0.18, l: 0.42, t: 0.25 },
+    { path: '16dha', s: 0.17, l: 0.42, t: 0.25 },
+    { path: '17na', s: 0.2, l: 0.4, t: 0.27 },
+    { path: '18daa', s: 0.16, l: 0.43, t: 0.23 },
+    { path: '19taa', s: 0.18, l: 0.42, t: 0.25 },
+    { path: '20tra', s: 0.2, l: 0.4, t: 0.25 },
+    { path: '21thaa', s: 0.18, l: 0.41, t: 0.25 },
+    { path: '', s: 0.2, l: 0.4, t: 0.25 }, //missed....
+    { path: '23dhaa', s: 0.17, l: 0.42, t: 0.25 },
+    { path: '24naa', s: 0.2, l: 0.4, t: 0.24 },
+    { path: '25paa', s: 0.18, l: 0.41, t: 0.24 },
+    { path: '26faa', s: 0.22, l: 0.39, t: 0.26 },
+    { path: '27baa', s: 0.2, l: 0.4, t: 0.25 },
+
+    { path: '28bha', s: 0.22, l: 0.39, t: 0.23 },
+    { path: '29ma', s: 0.2, l: 0.4, t: 0.25 },
+    { path: '30ya', s: 0.2, l: 0.4, t: 0.25 },
+    { path: '31ra', s: 0.14, l: 0.43, t: 0.24 },
+
+    { path: '32la', s: 0.2, l: 0.4, t: 0.26 },
+    { path: '33va', s: 0.2, l: 0.4, t: 0.25 },
+    { path: '34sha', s: 0.2, l: 0.4, t: 0.25 },
+    { path: '35shra', s: 0.2, l: 0.41, t: 0.25 },
+    { path: '36shaa', s: 0.2, l: 0.4, t: 0.25 },
+    { path: '37sa', s: 0.2, l: 0.4, t: 0.25 },
+    { path: '38ha', s: 0.14, l: 0.44, t: 0.24 },
+
 ]
 
 export { scaleImageList, moveImageList, letterList }
@@ -68,7 +146,6 @@ export const preFixList = [
     'SB06_LT_38_Ha',//38
 ]
 
-
 const maskInfoList = [
     { size: '65% 65%', position: '50% 60%' },
     { size: '70% 70%', position: '45% 55%' },
@@ -111,59 +188,54 @@ const maskInfoList = [
 
 ]
 
-
-export const seaLetters = [
-    {
-        path : 'ka'
-    }
-]
-
 const animtionList = [
-    { path: 'Ka_1', scale: 0.48, left: 0.26, top: 0.205 },
-    { path: 'SB_04_aa_1', scale: 0.42, left: 0.32, top: 0.245 },
-    { path: 'SB_04_i_1', scale: 0.28, left: 0.37, top: 0.17 },
-    { path: 'SB_04_ee_1', scale: 0.245, left: 0.382, top: 0.125 },
-    { path: 'SB_04_u_1', scale: 0.33, left: 0.33, top: 0.18 },
-    { path: 'SB_04_oo_1', scale: 0.35, left: 0.35, top: 0.215 },
-    { path: 'SB_04_r_1', scale: 0.445, left: 0.29, top: 0.22 },
-    { path: 'SB_04_e_1', scale: 0.38, left: 0.32, top: 0.16 },
+    { path: '1_Ka_1', scale: 0.48, left: 0.26, top: 0.19 },
+    { path: '2_Ksha_1', scale: 0.36, left: 0.305, top: 0.14 },
+    { path: '3_Kha_1', scale: 0.44, left: 0.28, top: 0.22 },
+    { path: '4_Ga_1', scale: 0.40, left: 0.302, top: 0.225 },
+    { path: '5_Gha_1', scale: 0.41, left: 0.295, top: 0.2 },
+    { path: '6_Nya_1', scale: 0.42, left: 0.29, top: 0.19 },
+    { path: '7_Cha_1', scale: 0.42, left: 0.29, top: 0.21 },
+    { path: '8_Chha_1', scale: 0.44, left: 0.28, top: 0.17 },
+    { path: '9_Ja_1', scale: 0.46, left: 0.27, top: 0.22 },
+    { path: '10_Jna_1', scale: 0.34, left: 0.33, top: 0.165 },
+    { path: '11_Jha_1', scale: 0.42, left: 0.29, top: 0.125 },
+    { path: '12_Nyaa_1', scale: 0.43, left: 0.265, top: 0.16 },
 
-    { path: 'SB_04_ai_1', scale: 0.3, left: 0.37, top: 0.12 },
-    { path: 'SB_04_o_1', scale: 0.38, left: 0.33, top: 0.16 },
-    { path: 'SB_04_au_1', scale: 0.38, left: 0.33, top: 0.16 },
-    { path: 'SB_04_am_1', scale: 0.36, left: 0.33, top: 0.16 },
-    { path: 'SB_04_ahaa_1', scale: 0.43, left: 0.305, top: 0.22 }, //13
+    { path: '', scale: 0.43, left: 0.305, top: 0.22 }, //missed 13
+    { path: '', scale: 0.38, left: 0.33, top: 0.205 }, //missed 14
 
+    { path: '23_Daaaa_1', scale: 0.51, left: 0.265, top: 0.09 }, //is same 
+    { path: '16_Dha_1', scale: 0.4, left: 0.3, top: 0.12 },
 
-    { path: 'SB_04_a_1', scale: 0.38, left: 0.33, top: 0.205 },
-    { path: 'SB_04_aa_1', scale: 0.42, left: 0.32, top: 0.245 },
-    { path: 'SB_04_i_1', scale: 0.28, left: 0.37, top: 0.17 },
-    { path: 'SB_04_ee_1', scale: 0.245, left: 0.382, top: 0.125 },
-    { path: 'SB_04_u_1', scale: 0.33, left: 0.33, top: 0.18 },
-    { path: 'SB_04_oo_1', scale: 0.35, left: 0.35, top: 0.215 },
-    { path: 'SB_04_r_1', scale: 0.445, left: 0.29, top: 0.22 },
-    { path: 'SB_04_e_1', scale: 0.38, left: 0.32, top: 0.16 },
+    { path: '24_Naa_1', scale: 0.41, left: 0.295, top: 0.255 },
 
-    { path: 'SB_04_ai_1', scale: 0.3, left: 0.37, top: 0.12 },
-    { path: 'SB_04_o_1', scale: 0.38, left: 0.33, top: 0.16 },
-    { path: 'SB_04_au_1', scale: 0.38, left: 0.33, top: 0.16 },
-    { path: 'SB_04_am_1', scale: 0.36, left: 0.33, top: 0.16 },
-    { path: 'SB_04_ahaa_1', scale: 0.43, left: 0.305, top: 0.22 }, //13
+    { path: '', scale: 0.33, left: 0.33, top: 0.18 }, //failed....
+    { path: '', scale: 0.35, left: 0.35, top: 0.215 },// failed...
+    { path: '', scale: 0.445, left: 0.29, top: 0.22 },// failed...
+    { path: '', scale: 0.38, left: 0.32, top: 0.16 },// failed...
+    { path: '18_Daaa_1', scale: 0.36, left: 0.32, top: 0.12 },
+    { path: '', scale: 0.38, left: 0.33, top: 0.16 },  // failed...
 
-    { path: 'SB_04_a_1', scale: 0.38, left: 0.33, top: 0.205 },
-    { path: 'SB_04_aa_1', scale: 0.42, left: 0.32, top: 0.245 },
-    { path: 'SB_04_i_1', scale: 0.28, left: 0.37, top: 0.17 },
-    { path: 'SB_04_ee_1', scale: 0.245, left: 0.382, top: 0.125 },
-    { path: 'SB_04_u_1', scale: 0.33, left: 0.33, top: 0.18 },
-    { path: 'SB_04_oo_1', scale: 0.35, left: 0.35, top: 0.215 },
-    { path: 'SB_04_r_1', scale: 0.445, left: 0.29, top: 0.22 },
-    { path: 'SB_04_e_1', scale: 0.38, left: 0.32, top: 0.16 },
+    { path: '17_Na_1', scale: 0.41, left: 0.275, top: 0.16 },
 
-    { path: 'SB_04_ai_1', scale: 0.3, left: 0.37, top: 0.12 },
-    { path: 'SB_04_o_1', scale: 0.38, left: 0.33, top: 0.16 },
-    { path: 'SB_04_au_1', scale: 0.38, left: 0.33, top: 0.16 },
-    { path: 'SB_04_am_1', scale: 0.36, left: 0.33, top: 0.16 },
-    { path: 'SB_04_ahaa_1', scale: 0.43, left: 0.305, top: 0.22 }, //13
+    { path: '25_Pa_1', scale: 0.38, left: 0.31, top: 0.15 },
+    { path: '26_Pha_1', scale: 0.49, left: 0.255, top: 0.18 },
+    { path: '27_Ba_1', scale: 0.46, left: 0.27, top: 0.14 },
+    { path: '28_Bha_1', scale: 0.51, left: 0.235, top: 0.12 },
+    { path: '29_Ma_1', scale: 0.44, left: 0.27, top: 0.165 },
+
+    { path: '31_Ra_1', scale: 0.24, left: 0.382, top: 0.125 }, //missed...
+    { path: '31_Ra_1', scale: 0.35, left: 0.325, top: 0.11 },
+
+    { path: '32_La_1', scale: 0.42, left: 0.291, top: 0.215 },
+    { path: '', scale: 0.445, left: 0.29, top: 0.22 }, //missed..
+    { path: '34_Sha_1', scale: 0.46, left: 0.27, top: 0.18 },
+
+    { path: '', scale: 0.3, left: 0.37, top: 0.12 }, //missed..
+    { path: '36_Shaa_1', scale: 0.43, left: 0.28, top: 0.19 },
+    { path: '37_Sa_1', scale: 0.43, left: 0.285, top: 0.155 },
+    { path: '38_Ha_1', scale: 0.31, left: 0.345, top: 0.13 },
 ]
 const letterPosList = [
     {
@@ -700,7 +772,7 @@ const movePath = [
             { x: 807, y: 371 },
             { x: 815, y: 380 },
             { x: 823, y: 392 },
-            { x: 828, y: 403 },
+            { x: 828, y: 403, w : 80 },
             { x: 832, y: 420 },
             { x: 832, y: 442 },
             { x: 825, y: 462 },
@@ -2588,275 +2660,554 @@ const showingLayoutList = [
     [
         {
             wPath: 'kamal',
-            s: 1, r: 0.0, tb: 0.21
+            s: 1, r: 0.0, tb: 0.21, ts: 1
         },
         {
             wPath: 'kabutar',
-            s: 0.8, r: 0.1, tb: 0.14
+            s: 0.8, r: 0.1, tb: 0.14, ts: 1
         },
         {
             wPath: 'kalam',
-            s: 1, r: 0.0, tb: 0.205
+            s: 1, r: 0.0, tb: 0.205, ts: 1
         },
     ],
     [
         {
-            wPath: 'SB_05_BG_PI_04_aari',
-            hPath: 'SB_05_BG_PI_04_YH_aari',
-            tPath: 'SB_05_TI_02_aari',
-            s: 1, r: 0.0, tb: 0.17
+            wPath: 'shatriya',
+            s: 1, r: 0.0, tb: 0.11, ts: 1
         },
         {
-            wPath: 'SB_05_BG_PI_05_ aalu',
-            hPath: 'SB_05_BG_PI_05_YH_aalu',
-            tPath: 'SB_05_TI_02_aalu',
-            s: 1, r: 0.0, tb: 0.05
+            wPath: 'shama',
+            s: 1, r: 0.0, tb: -0.01, ts: 0.75
         },
         {
-            wPath: 'SB_05_BG_PI_06_aasman',
-            hPath: 'SB_05_BG_PI_06_YH_aasman',
-            tPath: 'SB_05_TI_02_aasman',
-            s: 0.8, r: 0.1, tb: 0.1
+            wPath: 'shitij',
+            s: 1, r: 0.0, tb: 0.205, ts: 1.15
         },
     ],
     [
         {
-            wPath: 'SB_05_BG_PI_07_imarath',
-            hPath: 'SB_05_BG_PI_07_YH_imarath',
-            tPath: 'SB_05_TI_03_imarat',
-            s: 1, r: 0.0, tb: 0.07
+            wPath: 'khargosh',
+            s: 1, r: 0.0, tb: 0.27, ts: 1.4
         },
         {
-            wPath: 'SB_05_BG_PI_08_idli',
-            hPath: 'SB_05_BG_PI_08_YH_idli',
-            tPath: 'SB_05_TI_03_idli',
-            s: 1, r: 0.0, tb: 0.11
+            wPath: 'khat',
+            s: 1, r: 0.0, tb: -0.01, ts: 0.7
         },
         {
-            wPath: 'SB_05_BG_PI_09_itra',
-            hPath: 'SB_05_BG_PI_09_YH_itra',
-            tPath: 'SB_05_TI_03_itra',
-            s: 0.8, r: 0.12, tb: 0.02
+            wPath: 'khajana',
+            s: 1, r: 0.0, tb: 0.16, ts: 1.3
         },
     ],
     [
         {
-            wPath: 'SB_05_BG_PI_11_eid',
-            hPath: 'SB_05_BG_PI_11_YH_eid',
-            tPath: 'SB_05_TI_04_eid',
-            s: 0.9, r: 0.1, tb: 0.125
+            wPath: 'gamala',
+            s: 0.75, r: 0.05, tb: 0.24, ts: 1.2
         },
+        {
+            wPath: 'gagan',
+            s: 1, r: 0.0, tb: 0.15, ts: 1
+        },
+        {
+            wPath: 'gathari',
+            s: 0.8, r: 0.1, tb: 0.16, ts: 1
+        },
+    ],
+    [
+        {
+            wPath: 'ghadi',
+            s: 0.5, r: 0.25, tb: -0.25, ts: 1
+        },
+        {
+            wPath: 'ghar',
+            s: 1.5, r: -0.25, tb: -0.16, ts: 0.7
+        },
+        {
+            wPath: 'ghanta',
+            s: 0.8, r: 0.1, tb: -0.07, ts: 1
+        },
+    ],
+    //6
+    [
+        {
+            wPath: 'chidiya',
+            s: 0.8, r: 0.1, tb: 0.05, ts: 1.2
+        },
+        {
+            wPath: 'gaadi',
+            s: 1.2, r: -0.1, tb: -0.18, ts: 0.8
+        },
+        {
+            wPath: 'pagdi',
+            s: 0.8, r: 0.1, tb: -0.07, ts: 0.9
+        },
+    ],
+    [
+        {
+            wPath: 'chabi',
+            s: 1, r: 0.0, tb: -0.05, ts: 1
+        },
+        {
+            wPath: 'chammach',
+            s: 1.1, r: -0.0, tb: 0.07, ts: 1.2
+        },
+        {
+            wPath: 'chappal',
+            s: 1, r: 0.0, tb: 0.05, ts: 1.2
+        },
+    ],
+    [
+        {
+            wPath: 'chata',
+            s: 1, r: 0.0, tb: 0.05, ts: 0.9
+        },
+        {
+            wPath: 'chadi',
+            s: 0.6, r: 0.2, tb: -0.24, ts: 0.8
+        },
+        {
+            wPath: 'chipkali',
+            s: 1, r: 0.0, tb: 0.2, ts: 1.6
+        },
+    ],
 
+    [
         {
-            wPath: 'SB_05_BG_PI_10_sugar cane',
-            hPath: 'SB_05_BG_PI_10_YH_sugar cane',
-            tPath: 'SB_05_TI_04_eekh',
-            s: 0.9, r: 0.0, tb: 0.15
+            wPath: 'jilebi',
+            s: 1, r: 0.0, tb: 0.29, ts: 1.1
         },
-
         {
-            wPath: 'SB_05_BG_PI_12_eet',
-            hPath: 'SB_05_BG_PI_12_YH_eet',
-            tPath: 'SB_05_TI_04_eet',
-            s: 1, r: 0.05, tb: 0.15
+            wPath: 'jamun',
+            s: 1.2, r: -0.1, tb: 0.05, ts: 1.1
+        },
+        {
+            wPath: 'jal',
+            s: 1, r: 0.0, tb: 0.1, ts: 0.7
+        },
+    ],
+    //10
+    [
+        {
+            wPath: 'nandni',
+            s: 1, r: 0.0, tb: 0.00, ts: 0.8
+        },
+       
+    ],
+    [
+        {
+            wPath: 'zarana',
+            s: 1.2, r: -0.1, tb: 0.1, ts: 1
+        },
+        {
+            wPath: 'zhanda',
+            s: 0.9, r: -0.1, tb: -0.05, ts: 0.8
+        },
+        {
+            wPath: 'zhadu',
+            s: 0.7, r: 0.15, tb: -0.05, ts: 0.85
+        },
+    ],//12
+    [
+        {
+            wPath: 'zarana',
+            s: 1.2, r: -0.1, tb: 0.1, ts: 1
+        },
+        {
+            wPath: 'zhanda',
+            s: 0.9, r: -0.1, tb: -0.05, ts: 0.8
+        },
+        {
+            wPath: 'zhadu',
+            s: 0.7, r: 0.15, tb: -0.05, ts: 0.85
+        },
+    ], //13
+    [
+        {
+            wPath: 'tamatar',
+            s: 0.9, r: -0.05, tb: 0.16, ts: 1.15
+        },
+        {
+            wPath: 'topi',
+            s: 1, r: 0.0, tb: -0.02, ts: 0.8
+        },
+        {
+            wPath: 'tokri',
+            s: 1.2, r: -0.1, tb: 0.12, ts: 1.1
+        },
+    ],
+    //14
+    [
+        {
+            wPath: 'thela',
+            s: 1.2, r: -0.1, tb: 0.03, ts: 0.8
+        },
+        {
+            wPath: 'thandi',
+            s: 1.4, r: -0.2, tb: -0.03, ts: 0.8
+        },
+        {
+            wPath: 'thekedar',
+            s: 0.8, r: 0.1, tb: 0.12, ts: 1.4
+        },
+    ],
+    //15
+    [
+        {
+            wPath: 'doctor',
+            s: 0.6, r: 0.2, tb: 0.03, ts: 1.2
+        },
+        {
+            wPath: 'dibba',
+            s: 0.7, r: 0.15, tb: -0.03, ts: 1
+        },
+        {
+            wPath: 'danda',
+            s: 0.8, r: 0.1, tb: -0.2, ts: 0.8
+        },
+    ],
+    //16
+    [
+        {
+            wPath: 'dholak',
+            s: 1.2, r: -0.1, tb: -0.01, ts: 1.2
+        },
+        {
+            wPath: 'dafli',
+            s: 0.8, r: 0.1, tb: -0.00, ts: 1.2
+        },
+        {
+            wPath: 'dhakkan',
+            s: 1, r: 0.0, tb: 0.00, ts: 1.3
+        },
+    ],
+    //17
+    [
+        {
+            wPath: 'charan',
+            s: 1, r: 0.0, tb: -0.01, ts: 1.2
+        },
+        {
+            wPath: 'kon',
+            s: 0.8, r: 0.1, tb: -0.05, ts: 1.2
+        },
+        {
+            wPath: 'baan',
+            s: 1, r: 0.0, tb: -0.08, ts: 1.1
+        },
+    ],
+    //18
+    [
+        {
+            wPath: 'sidi',
+            s: 0.5, r: 0.25, tb: -0.1, ts: 0.8
+        },
+        {
+            wPath: 'kadhai',
+            s: 1.2, r: -0.1, tb: -0.0, ts: 1
+        },
+        {
+            wPath: 'kadhai',
+            s: 0.8, r: 0.1, tb: -0.05, ts: 1.2
         }
     ],
+    //19
     [
         {
-            wPath: 'SB_05_BG_PI_14_ upahar',
-            hPath: 'SB_05_BG_PI_14_YH_upahar',
-            tPath: 'SB_05_TI_05_upahar',
-            s: 1, r: 0.00, tb: 0.05
+            wPath: 'tarbuj',
+            s: 1.2, r: -0.1, tb: -0.0, ts: 1.2
         },
-
         {
-            wPath: 'SB_05_BG_PI_13_ullu',
-            hPath: 'SB_05_BG_PI_13_YH_ullu',
-            tPath: 'SB_05_TI_05_ullu',
-            s: 0.8, r: 0.15, tb: 0.04
+            wPath: 'tala',
+            s: 0.8, r: 0.1, tb: 0.08, ts: 1
         },
-
         {
-            wPath: 'SB_05_BG_PI_15_upavan',
-            hPath: 'SB_05_BG_PI_15_YH_upavan',
-            tPath: 'SB_05_TI_05_upavan',
-            s: 1.2, r: -0.07, tb: 0.11
+            wPath: 'takiya',
+            s: 1.2, r: -0.1, tb: 0.18, ts: 1.4
         }
     ],
+    //20
     [
         {
-            wPath: 'SB_05_BG_PI_18_unt',
-            hPath: 'SB_05_BG_PI_18_YH_unt',
-            tPath: 'SB_05_TI_06_unt',
-            s: 1, r: 0.2, tb: 0.17
+            wPath: 'trishul',
+            s: 1, r: 0.0, tb: -0.0, ts: 1.1
         },
-
         {
-            wPath: 'SB_05_BG_PI_17_udbilav',
-            hPath: 'SB_05_BG_PI_17_YH_udbilav',
-            tPath: 'SB_05_TI_06_udbilav',
-            s: 1.1, r: -0.05, tb: 0.15
+            wPath: 'tribhuj',
+            s: 1, r: 0.0, tb: 0.01, ts: 1.1
         },
-
         {
-            wPath: 'SB_05_BG_PI_16_unn',
-            hPath: 'SB_05_BG_PI_16_YH_unn',
-            tPath: 'SB_05_TI_06_unn',
-            s: 1, r: 0.0, tb: 0.05
+            wPath: 'takiya',
+            s: 1.2, r: -0.1, tb: 0.18, ts: 1.4
         }
     ],
+    //21
     [
         {
-            wPath: 'SB_05_BG_PI_19a_rutu',
-            hPath: 'SB_05_BG_PI_19a_YH_rutu',
-            tPath: 'SB_05_TI_07_rutu',
-            s: 0.9, r: 0.05, tb: 0.06
+            wPath: 'thali',
+            s: 1.2, r: -0.1, tb: -0.0, ts: 0.9
         },
         {
-            wPath: 'SB_05_BG_PI_19_rushi',
-            hPath: 'SB_05_BG_PI_19_YH_rushi',
-            tPath: 'SB_05_TI_07_rushi',
-            s: 0.9, r: 0.1, tb: 0.15
+            wPath: 'thaili',
+            s: 0.8, r: 0.1, tb: -0.1, ts: 0.8
         },
         {
-            wPath: 'SB_05_BG_PI_19b_runa',
-            hPath: 'SB_05_BG_PI_19b_YH_runa',
-            tPath: 'SB_05_TI_07_runa',
-            s: 0.9, r: 0.05, tb: 0.07
+            wPath: 'tharmas',
+            s: 0.6, r: 0.1, tb: 0.08, ts: 1.2
         }
     ],
+    //22
     [
-
         {
-            wPath: 'SB_05_BG_PI_21_ektara',
-            hPath: 'SB_05_BG_PI_21_YH_ektara',
-            tPath: 'SB_05_TI_08_ektara',
-            s: 1, r: 0, tb: 0.07
+            wPath: 'darwaja',
+            s: 1, r: 0.0, tb: 0.1, ts: 1.3
         },
-
         {
-            wPath: 'SB_05_BG_PI_20_ek',
-            hPath: 'SB_05_BG_PI_20_YH_ek',
-            tPath: 'SB_05_TI_08_ek',
-            s: 0.4, r: 0.4, tb: 0.07
+            wPath: 'daat',
+            s: 0.8, r: 0.1, tb: -0.32, ts: 0.7
         },
-
-
         {
-            wPath: 'SB_05_BG_PI_22_aedi',
-            hPath: 'SB_05_BG_PI_22_YH_aedi',
-            tPath: 'SB_05_TI_08_aedi',
-            s: 0.7, r: 0.15, tb: 0.15
+            wPath: 'darpan',
+            s: 0.6, r: 0.2, tb: -0.1, ts: 0.9
         }
     ],
+    //23
     [
         {
-            wPath: 'SB_05_BG_PI_25_airavat',
-            hPath: 'SB_05_BG_PI_25_YH_airavat',
-            tPath: 'SB_05_TI_09_airavat',
-            s: 1.1, r: 0.1, tb: 0.15
+            wPath: 'dhoti',
+            s: 1, r: 0.0, tb: 0.1, ts: 0.8
         },
-
         {
-            wPath: 'SB_05_BG_PI_23_enak',
-            hPath: 'SB_05_BG_PI_23_YH_enak',
-            tPath: 'SB_05_TI_09_enak',
-            s: 1, r: 0.0, tb: 0.15
+            wPath: 'dhanush',
+            s: 1, r: 0.0, tb: -0.06, ts: 0.85
         },
-
         {
-            wPath: 'SB_05_BG_PI_24_elaan',
-            hPath: 'SB_05_BG_PI_24_YH_elaan',
-            tPath: 'SB_05_TI_09_elaan',
-            s: 0.8, r: 0.1, tb: 0.15
+            wPath: 'dhobi',
+            s: 1.2, r: -0.1, tb: 0.09, ts: 0.9
         }
     ],
-    [
-
-        {
-            wPath: 'SB_05_BG_PI_27_oos',
-            hPath: 'SB_05_BG_PI_27_YH_oos',
-            tPath: 'SB_05_TI_10_oos',
-            s: 0.9, r: 0.05, tb: 0.14
-        },
-
-        {
-            wPath: 'SB_05_BG_PI_28_odhani',
-            hPath: 'SB_05_BG_PI_28_YH_odhani',
-            tPath: 'SB_05_TI_10_odhani',
-            s: 0.6, r: 0.25, tb: 0.10
-        },
-        {
-            wPath: 'SB_05_BG_PI_26_okhali',
-            hPath: 'SB_05_BG_PI_26_YH_okhali',
-            tPath: 'SB_05_TI_10_okhali',
-            s: 1, r: 0.0, tb: 0.15
-        },
-    ],
+    //24
     [
         {
-            wPath: 'SB_05_BG_PI_30_auzaar',
-            hPath: 'SB_05_BG_PI_30_YH_auzaar',
-            tPath: 'SB_05_TI_11_auzaar',
-            s: 0.9, r: 0.05, tb: 0.15
+            wPath: 'nal',
+            s: 1, r: 0.0, tb: -0.02, ts: 0.7
         },
-
         {
-            wPath: 'SB_05_BG_PI_29_aura',
-            hPath: 'SB_05_BG_PI_29_YH_aura',
-            tPath: 'SB_05_TI_11_aurat',
-            s: 1, r: 0.0, tb: 0.15
+            wPath: 'naav',
+            s: 1.4, r: -0.2, tb: 0.02, ts: 0.85
         },
-
         {
-            wPath: 'SB_05_BG_PI_31_aushadhi',
-            hPath: 'SB_05_BG_PI_31_YH_aushadhi',
-            tPath: 'SB_05_TI_11_aushadhi',
-            s: 0.6, r: 0.2, tb: 0.15
+            wPath: 'nadi',
+            s: 1, r: 0.0, tb: -0.25, ts: 0.8
         }
     ],
+    //25
     [
         {
-            wPath: 'SB_05_BG_PI_33_anguthi',
-            hPath: 'SB_05_BG_PI_33_YH_anguthi',
-            tPath: 'SB_05_TI_12_angithi',
-            s: 0.6, r: 0.2, tb: 0.13
+            wPath: 'patang',
+            s: 1, r: 0.0, tb: 0.07, ts: 0.8
         },
-
         {
-            wPath: 'SB_05_BG_PI_34_anda',
-            hPath: 'SB_05_BG_PI_34_YH_anda',
-            tPath: 'SB_05_TI_12_anda',
-            s: 0.8, r: 0.1, tb: 0.14
+            wPath: 'pahadi',
+            s: 0.8, r: 0.1, tb: 0.00, ts: 0.85
         },
-
         {
-            wPath: 'SB_05_BG_PI_32_angoor',
-            hPath: 'SB_05_BG_PI_32_YH_angoor',
-            tPath: 'SB_05_TI_12_angoor',
-            s: 0.9, r: 0.05, tb: 0.07
+            wPath: 'palang',
+            s: 1.6, r: -0.3, tb: 0.09, ts: 0.9
         }
     ],
+    //26
     [
         {
-            wPath: 'SB_05_BG_PI_33_anguthi',
-            hPath: 'SB_05_BG_PI_33_YH_anguthi',
-            tPath: 'SB_05_TI_12_angithi',
-            s: 0.6, r: 0.2, tb: 0.15
+            wPath: 'fal',
+            s: 1, r: 0.0, tb: 0.09, ts: 0.8
         },
-
         {
-            wPath: 'SB_05_BG_PI_34_anda',
-            hPath: 'SB_05_BG_PI_34_YH_anda',
-            tPath: 'SB_05_TI_12_anda',
-            s: 0.8, r: 0.1, tb: 0.15
+            wPath: 'farsh',
+            s: 1, r: 0.0, tb: 0.00, ts: 0.85
         },
-
         {
-            wPath: 'SB_05_BG_PI_32_angoor',
-            hPath: 'SB_05_BG_PI_32_YH_angoor',
-            tPath: 'SB_05_TI_12_angoor',
-            s: 0.9, r: 0.05, tb: 0.15
+            wPath: 'ful',
+            s: 0.7, r: 0.15, tb: -0.17, ts: 0.85
+        }
+    ],
+    //27
+    [
+        {
+            wPath: 'bakri',
+            s: 0.8, r: 0.1, tb: 0.08, ts: 0.9
+        },
+        {
+            wPath: 'bandar',
+            s: 1, r: 0.0, tb: -0.2, ts: 0.75
+        },
+        {
+            wPath: 'bagicha',
+            s: 0.9, r: 0.05, tb: 0.16, ts: 1
+        }
+    ],
+    //28
+    [
+        {
+            wPath: 'bhojan',
+            s: 1.1, r: -0.05, tb: 0.08, ts: 1.1
+        },
+        {
+            wPath: 'bhediya',
+            s: 1, r: 0.0, tb: -0.03, ts: 1.1
+        },
+        {
+            wPath: 'bhais',
+            s: 1.3, r: -0.2, tb: -0.26, ts: 0.7
+        }
+    ],
+    //29
+    [
+        {
+            wPath: 'machli',
+            s: 1.3, r: -0.15, tb: 0.08, ts: 1.1
+        },
+        {
+            wPath: 'makdi',
+            s: 1, r: 0.0, tb: -0.1, ts: 1.1
+        },
+        {
+            wPath: 'makkhi',
+            s: 0.8, r: 0.1, tb: 0.03, ts: 1.1
+        }
+    ],
+    //30
+    [
+        {
+            wPath: 'yuvak',
+            s: 0.9, r: 0.05, tb: -0.08, ts: 0.9
+        },
+        {
+            wPath: 'yadnya',
+            s: 1, r: 0.0, tb: -0.21, ts: 0.65
+        },
+        {
+            wPath: 'yatri',
+            s: 0.9, r: 0.05, tb: 0.03, ts: 0.9
+        }
+    ],
+    //31
+    [
+        {
+            wPath: 'roti',
+            s: 1.2, r: -0.1, tb: -0.18, ts: 0.75
+        },
+        {
+            wPath: 'rassi',
+            s: 1.2, r: -0.1, tb: -0.11, ts: 0.9
+        },
+        {
+            wPath: 'rikshaw',
+            s: 1.2, r: -0.1, tb: 0.03, ts: 1.1
+        }
+    ],
+    //32
+    [
+        {
+            wPath: 'laddu',
+            s: 1, r: -0.0, tb: 0.01, ts: 0.95
+        },
+        {
+            wPath: 'langur',
+            s: 1.1, r: -0.05, tb: -0.09, ts: 0.9
+        },
+        {
+            wPath: 'ladki',
+            s: 0.5, r: 0.25, tb: 0.1, ts: 1.1
+        }
+    ],
+    //33
+    [
+        {
+            wPath: 'vimaan',
+            s: 1.3, r: -0.15, tb: 0.17, ts: 1
+        },
+        {
+            wPath: 'vastra',
+            s: 1, r: 0.00, tb: 0.00, ts: 0.75
+        },
+        {
+            wPath: 'vina',
+            s: 0.8, r: 0.1, tb: 0.06, ts: 0.9
+        }
+    ],
+    //34
+    [
+        {
+            wPath: 'sheer',
+            s: 1.6, r: -0.3, tb: -0.21, ts: 0.65
+        },
+        {
+            wPath: 'shank',
+            s: 0.8, r: 0.1, tb: 0.00, ts: 0.75
+        },
+        {
+            wPath: 'sharbat',
+            s: 0.6, r: 0.2, tb: 0.18, ts: 1.2
+        }
+    ],
+    //35
+    [
+        {
+            wPath: 'shramik',
+            s: 0.9, r: 0.05, tb: 0.17, ts: 1
+        },
+        {
+            wPath: 'shrikhand',
+            s: 1, r: 0.0, tb: 0.15, ts: 1.1
+        },
+        {
+            wPath: 'sharbat',
+            s: 0.6, r: 0.2, tb: 0.18, ts: 1.1
+        }
+    ],
+    //36
+    [
+        {
+            wPath: 'shramik',
+            s: 0.9, r: 0.05, tb: 0.17, ts: 1
+        },
+        {
+            wPath: 'shrikhand',
+            s: 1, r: 0.0, tb: 0.15, ts: 1.1
+        },
+        {
+            wPath: 'sharbat',
+            s: 0.6, r: 0.2, tb: 0.18, ts: 1.1
+        }
+    ],
+    //37
+    [
+        {
+            wPath: 'saap',
+            s: 1.1, r: -0.05, tb: -0.1, ts: 0.8
+        },
+        {
+            wPath: 'sadak',
+            s: 1, r: 0.0, tb: 0.00, ts: 1
+        },
+        {
+            wPath: 'sabji',
+            s: 1, r: 0.0, tb: 0.00, ts: 1
+        }
+    ],
+    //38
+    [
+        {
+            wPath: 'haathi',
+            s: 1.6, r: -0.3, tb: -0.15, ts: 0.8
+        },
+        {
+            wPath: 'heera',
+            s: 0.8, r: 0.1, tb: -0.23, ts: 0.7
+        },
+        {
+            wPath: 'haath',
+            s: 0.5, r: 0.3, tb: -0.2, ts: 0.7
         }
     ],
 ]
@@ -2866,5 +3217,12 @@ export {
     lineLengthList, firstPosList, movePath, brushColorList, showingLayoutList
 }
 
-
+export const missedList = [
+    [10, 1],
+    [12, 0],
+    [18, 2],
+    [20, 2],
+    [35, 2],
+    [36, 1],
+]
 export const notJudgeBackList = []

@@ -21,6 +21,15 @@ var buildFolderList = [
     'ee03_md_hi_ah_tr'
 ]
 
+export const Switch = props => {
+    const { test, children } = props
+    // filter out only children with a matching prop
+    return children.find(child => {
+      return child.props.value === test
+    })
+  }
+  
+
 export function initialAudio(audioList) {
     let allkeys = Object.keys(audioList)
     for (let i = 0; i < allkeys.length; i++) {
