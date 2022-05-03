@@ -16,7 +16,7 @@ let backAudio = loadSound('bMusic', true)
 backAudio.loop = true;
 backAudio.volume = 0.12;
 
-let currentSceneNumber = 5;
+let currentSceneNumber = 6;
 
 let letterVoiceList = [
     '1_sb06_ka',
