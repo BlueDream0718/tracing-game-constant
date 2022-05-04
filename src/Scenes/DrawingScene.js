@@ -345,8 +345,8 @@ export default function Scene({ nextFunc, _geo,
                             showingHighImgList[index].current.setClass('appear')
                             subLetterList[index].current.setClass('appear')
 
-                            // audioList.audioTing.currentTime = 0
-                            // audioList.audioTing.play();
+                            audioList.audioTing.currentTime = 0
+                            audioList.audioTing.play();
 
                             let showIndex = 0;
                             sparkRefList[showIndex].current.setClass('showObject')
