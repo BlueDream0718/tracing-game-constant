@@ -184,18 +184,13 @@ export default function Scene({ nextFunc, _geo,
         audioList.bodyAudio2.src = returnAudioPath(clapVoices[0])
 
         setTimeout(() => {
-            stopAnimation()
-
-            introturtle.current.play();
-
-
-
+            
             setTimeout(() => {
-
+                introturtle.current.play();
                 audioList.letterAudio.play()
                 setTimeout(() => {
                     introturtle.current.stop();
-                }, 300);
+                }, 600);
 
                 setTimeout(() => {
                     introturtle.current.play();

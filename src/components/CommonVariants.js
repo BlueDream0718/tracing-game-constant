@@ -424,7 +424,7 @@ const letterPosList = [
     },
 ]
 
-const lineLengthList = [70, 67, 67, 73, 71,
+const lineLengthList = [72, 67, 67, 73, 71,
     71,
     76,
     45,
@@ -733,7 +733,7 @@ const movePath = [
         [
             { x: 619, y: 351 },
             { x: 595, y: 333 },
-            { x: 577, y: 324, w: 74 },
+            { x: 577, y: 324, w: 77 },
             { x: 558, y: 318 },
             { x: 540, y: 313 },
             { x: 525, y: 311 },
