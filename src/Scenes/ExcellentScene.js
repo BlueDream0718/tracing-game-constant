@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import "../stylesheets/styles.css";
-import { prePathUrl } from "../components/CommonFunctions"
+import { prePathUrl, setRepeatType } from "../components/CommonFunctions"
 import BaseImage from '../components/BaseImage';
 import { returnAudioPath } from "../utils/loadSound"
 import { setRepeatAudio, startRepeatAudio, stopRepeatAudio } from '../components/CommonFunctions';
@@ -31,6 +31,7 @@ export default function Scene18({ nextFunc, _geo, audioList, _baseGeo }) {
             }, 6000);
         }, 1500);
 
+        setRepeatType(0)
 
         return () => {
             audioList.backAudio.volume = 0.12

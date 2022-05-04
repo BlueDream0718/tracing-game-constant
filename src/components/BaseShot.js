@@ -16,7 +16,7 @@ let backAudio = loadSound('bMusic', true)
 backAudio.loop = true;
 backAudio.volume = 0.12;
 
-let currentSceneNumber = 8;
+let currentSceneNumber = 0;
 
 let letterVoiceList = [
     '1_sb06_ka',
@@ -132,8 +132,6 @@ let wordVoiceList = [
     ['185', '186', '187'],
 ]
 
-
-
 let titleAudio = loadSound('SB_05_Audio_01')
 
 let bodyAudio1 = loadSound('SB_05_Audio_02') //explain voice
@@ -156,7 +154,7 @@ let audioClick = loadSound('click', true)
 let audioTing = loadSound('ting', true)
 let audioReplay = loadSound('replayAudio', true)
 
-audioSuccess.volume = 0.25
+audioSuccess.volume = 0.2
 audioBuzz.volume = 0.4
 audioClap.volume = 0.3
 audioYeah.volume = 0.4

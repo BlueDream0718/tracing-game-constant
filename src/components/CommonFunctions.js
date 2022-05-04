@@ -25,10 +25,10 @@ export const Switch = props => {
     const { test, children } = props
     // filter out only children with a matching prop
     return children.find(child => {
-      return child.props.value === test
+        return child.props.value === test
     })
-  }
-  
+}
+
 
 export function initialAudio(audioList) {
     let allkeys = Object.keys(audioList)
@@ -139,12 +139,23 @@ export const prePathUrl = () => sharePrePath;
 
 
 let repeatAudio, repeatInterval, repeartTimer, isRepeat = false;
+let primaryAudio;
+let subTimer, repeatType;
+
+export function setRepeatType(val) {
+    repeatType = val
+}
+
+
+export function setPrimaryRepeatAudio(audio) {
+    primaryAudio = audio;
+}
 
 export function setRepeatAudio(audio) {
     repeatAudio = audio;
 }
 
-export function startRepeatAudio(pastTime = 7000, intervalTime = 9000) {
+export function startRepeatAudio(pastTime = 5000, intervalTime = 10000) {
 
     isRepeat = true;
     clearTimeout(repeartTimer)
@@ -152,7 +163,16 @@ export function startRepeatAudio(pastTime = 7000, intervalTime = 9000) {
 
     repeartTimer = setTimeout(() => {
         repeatInterval = setInterval(() => {
-            repeatAudio.play();
+            clearTimeout(subTimer)
+            if (repeatType == 1) {
+                primaryAudio.play()
+                subTimer = setTimeout(() => {
+                    repeatAudio.play();
+                }, primaryAudio.duration * 1000);
+            }
+            else
+                repeatAudio.play()
+
         }, intervalTime);
     }, pastTime);
 }
@@ -160,11 +180,15 @@ export function startRepeatAudio(pastTime = 7000, intervalTime = 9000) {
 export function stopRepeatAudio() {
 
     repeatAudio.pause();
+    primaryAudio.pause();
+
+    primaryAudio.currentTime = 0;
     repeatAudio.currentTime = 0;
     isRepeat = false
 
     clearTimeout(repeartTimer)
     clearInterval(repeatInterval)
+    clearTimeout(subTimer)
 }
 
 export function isRepeating() {

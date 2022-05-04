@@ -532,32 +532,14 @@ img {
 .ellipse1 {
   shape-outside: ellipse(50% 15%);
   clip-path: ellipse(50% 15%);
-  background: lightblue;
-  animation: ellipseAni1 1.1s infinite;
-  animation-timing-function: linear;
-  animation-delay: 0.2s;
+  background: rgba(83, 83, 83, 0.509);
 }
 
-@keyframes ellipseAni1 {
-
-  0%,
-  100% {
-    transform: translateX(0%);
-  }
-
-  25% {
-    transform: translateX(-3%);
-  }
-
-  75% {
-    transform: translateX(3%);
-  }
-}
 
 .ellipse2 {
   shape-outside: ellipse(50% 15%);
   clip-path: ellipse(50% 15%);
-  background: lightblue;
+  background: rgb(30, 30, 30);
   animation: ellipseAni2 1s infinite;
   animation-timing-function: linear;
   animation-delay: 0.4s;
@@ -671,3 +653,4 @@ canvas {
   width: 100%;
   height: 100%;
 }
+

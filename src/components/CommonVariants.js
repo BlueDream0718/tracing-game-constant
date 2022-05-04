@@ -424,7 +424,7 @@ const letterPosList = [
     },
 ]
 
-const lineLengthList = [68, 67, 67, 73, 71,
+const lineLengthList = [70, 67, 67, 73, 71,
     71,
     76,
     45,
